@@ -1,0 +1,1 @@
+/Users/peixof02/.env/vim/.vim
