@@ -117,7 +117,7 @@ installohmyzsh() {
 ENVPATH="$HOME/.env"
 ZSH="$ENVPATH/zsh/.oh-my-zsh"
 mkdir "$ENVPATH"
-cp -r zsh/ vim/ "$ENVPATH"
+cp -R zsh vim "$ENVPATH"
 installohmyzsh
 git clone https://github.com/bhilburn/powerlevel9k.git "$ZSH/custom/themes/powerlevel9k"
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH/custom/plugins/zsh-autosuggestions"
