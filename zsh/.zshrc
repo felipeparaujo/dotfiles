@@ -58,7 +58,7 @@ export UPDATE_ZSH_DAYS=6
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases symfony2 vagrant fasd zsh-syntax-highlighting history history-substring-search zsh-autosuggestions)
+plugins=(git common-aliases symfony2 vagrant fasd history history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
