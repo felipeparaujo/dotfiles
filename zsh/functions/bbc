@@ -109,4 +109,7 @@ backfillByUrl() {
 alias ssh='ssh -X'
 alias vim='vim -p'
 
-reith_proxies on
+location=`networksetup -getcurrentlocation`
+if [[ $location == *"On"* ]]; then
+    reith_proxies on
+fi
