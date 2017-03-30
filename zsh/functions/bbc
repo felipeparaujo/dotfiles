@@ -4,7 +4,7 @@ FORGE_ENV=$HOME/vagrant/forge-sandbox-vagrant
 CLIFTON_ENV=$HOME/workspace/programmes-clifton
 BACKFILL_ENV=$HOME/workspace/programmes-cloud-sandbox/programmes-backfill-test
 
-CLIFTON_AWS=10.49.46.183
+CLIFTON_AWS=10.48.238.112
 
 # Customize to your needs...
 reith_proxies () {
@@ -20,7 +20,7 @@ reith_proxies () {
         export SOCKS_PROXY="$socks_proxy"
         export NO_PROXY="$no_proxy"
 
-        export no_proxy='gateway.bbc.co.uk,ips.radio.bbc.co.uk,radio.bbc.co.uk,core.bbc.co.uk,sandbox.dev.bbc.co.uk,sandbox.bbc.co.uk,localhost,10.0.0.0/8,192.168.0.0/16,192.168.99.100,192.168.193.10,192.168.192.10'
+        export no_proxy='gateway.bbc.co.uk,ips.radio.bbc.co.uk,radio.bbc.co.uk,core.bbc.co.uk,sandbox.dev.bbc.co.uk,sandbox.bbc.co.uk,localhost,10.0.0.0/8,192.168.0.0/16,192.168.99.100,192.168.193.10,192.168.192.10,grafana,influxdb'
         export NO_PROXY="$no_proxy"
 
     elif [[ $1 == off ]]; then
@@ -30,11 +30,8 @@ reith_proxies () {
 
 diffaps() {
     pid=$1
-    if [[ $(echo -n $pid | tail -c 5) != .json ]]; then
-        pid="$pid.json"
-    fi
 
-    vimdiff <(curl http://open.live.bbc.co.uk/aps/programmes/$pid | python -m json.tool) <(curl http://sandbox.bbc.co.uk:8000/aps/programmes/$pid | python -m json.tool)
+    vimdiff <(curl --insecure https://clifton.test.api.bbci.co.uk/aps/programmes/$pid | python -m json.tool) <(curl --insecure http://sandbox.bbc.co.uk:8000/aps/programmes/$pid | python -m json.tool)
     echo
 }
 
@@ -109,7 +106,12 @@ backfillByUrl() {
 alias ssh='ssh -X'
 alias vim='vim -p'
 
-location=`networksetup -getcurrentlocation`
-if [[ $location == *"On"* ]]; then
+LOCATION_TMP="$(networksetup -getcurrentlocation 2> /dev/null)"
+ 
+if (( ${#LOCATION_TMP} > 0 )); then
+    export LC_LOCATION=$LOCATION_TMP
+fi
+
+if [[ $LC_LOCATION == *"On"* ]]; then
     reith_proxies on
 fi

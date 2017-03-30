@@ -4,7 +4,7 @@ php_debug () {
     if [[ $1 == disable ]]; then
         export DBGP_IDEKEY=""
         export XDEBUG_CONFIG=""
-        export PHP_IDE_CONFIG=""
+        export PHP_IDE_CONFIG="serverName=sandbox"
         echo "remote debug disabled"
     elif [[ $1 == enable ]]; then
         export DBGP_IDEKEY="$IDEKEY"
