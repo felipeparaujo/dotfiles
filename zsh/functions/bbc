@@ -78,10 +78,9 @@ clifton() {
 
 
     if [[ $1 == start ]]; then
-        ./proxy_on.sh $CLIFTON_AWS
+        ./proxy.sh $CLIFTON_AWS
         php app/console server:start 0.0.0.0:8000
     elif [[ $1 == stop ]]; then
-        ./proxy_off.sh
         php app/console server:stop 0.0.0.0:8000
     elif [[ $1 == restart ]]; then
         clifton stop && clifton start
@@ -103,7 +102,6 @@ backfillByUrl() {
     fi
 }
 
-alias ssh='ssh -X'
 alias vim='vim -p'
 
 LOCATION_TMP="$(networksetup -getcurrentlocation 2> /dev/null)"
@@ -114,4 +112,6 @@ fi
 
 if [[ $LC_LOCATION == *"On"* ]]; then
     reith_proxies on
+else
+    reith_proxies off
 fi
