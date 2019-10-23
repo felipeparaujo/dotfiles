@@ -4,10 +4,10 @@ dotfiles
 Setup
 -----
 
-  1. Install zsh
+  1. Install zsh and NeoVim
 
   ```
-   apt-get install zsh
+   apt-get install zsh nvim
   ```
 
   2. Clone this repository
@@ -20,7 +20,7 @@ Setup
   ```
     ./setup.sh
   ```
-  4. Install the font
+  4. Install FuraCode: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 
 
   6. Make `zsh` your default shell
@@ -29,14 +29,6 @@ Setup
     chsh -s /bin/zsh
   ```
 
-Current Settings for iTerm2
+iTerm2 ColorScheme
 ---------------------------
-
-  1. Font: 13pt SourceCodePro+Powerline+Awesome Regular
-  
-  2. Colors: Afterglow
-
-BBC specific stuff
-------------------
-
-If using these dotfiles for non-BBC computers, delete the functions folder in ```.env/zsh/functions``` and edit the ```.zshrc``` to remove the source commands, at the beggining of the file.
+  https://github.com/anunez/one-dark-iterm
