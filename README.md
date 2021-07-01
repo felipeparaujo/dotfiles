@@ -20,10 +20,11 @@ Setup
   ```
     ./setup.sh
   ```
-  4. Install FuraCode: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fura%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+
+  4. Install FuraCode or VictorMono from https://github.com/ryanoasis/nerd-fonts
 
 
-  6. Make `zsh` your default shell
+  5. Make `zsh` your default shell
 
   ```
     chsh -s /bin/zsh

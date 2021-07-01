@@ -15,9 +15,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ -f ~/.config/zsh/.p10k.zsh ]] && source ~/.config/zsh/.p10k.zsh
 
-eval "$(pyenv init -)"
-eval "$(direnv hook zsh)"
-
 alias vim=nvim
 
 # git aliases

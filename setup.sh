@@ -1,40 +1,49 @@
 #!/usr/bin/env zsh
 set -e
 
+PADDING=""
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 setup_zsh() {
+  OLD_PADDING=${PADDING}
+  PADDING="${PADDING}   > "
+
+  echo "${PADDING}Copying .zshenv sourcing it..."
   cp -f "$SCRIPTPATH/zsh/.zshenv" "$HOME/.zshenv"
   source "$HOME/.zshenv"
 
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  echo $ZDOTDIR
+  echo "${PADDING}Cloning prezto repository..."
+  if  ! git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto" 2>/dev/null; then
+    echo "${PADDING}${ZDOTDIR:-$HOME}/.zprezto wasn't empty. Skipping cloning..."
+  fi
 
-  cp -f "$SCRIPTPATH/zsh/zshrc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/"
-  cp -f "$SCRIPTPATH/zsh/zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/"
-  cp -f "$SCRIPTPATH/zsh/.p10k.zsh" "${ZDOTDIR:-$HOME}/"
+  echo "${PADDING}Copying config files from $SCRIPTPATH/zsh/ to ${ZDOTDIR:-$HOME}..."
+  cp -fa $SCRIPTPATH/zsh/ "${ZDOTDIR:-$HOME}"
 
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
-  
-  source "${ZDOTDIR:-$HOME}/.zshrc"
+  echo "${PADDING}Done!"
+  PADDING=${OLD_PADDING}
 }
 
 setup_vim() {
-  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.config/nvim/bundle/Vundle.vim"
+  OLD_PADDING=${PADDING}
+  PADDING="${PADDING}   > "
+
+  if  ! git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.config/nvim/bundle/Vundle.vim" 2>/dev/null; then
+    echo "${PADDING}${ZDOTDIR:-$HOME}/.zprezto wasn't empty. Skipping cloning..."
+  fi
+
+  echo "${PADDING}Copying nvim config..."
   cp "$SCRIPTPATH/nvim/init.vim" "$HOME/.config/nvim/"
+
+  echo "${PADDING}Installing plugins..."
   nvim +PluginInstall +qall
+
+  echo "${PADDING}Done!"
+  PADDING=${OLD_PADDING}
 }
 
 if ! type git > /dev/null; then
   echo "Please install git to continue"
-  exit 1
-fi
-
-if ! type pyenv > /dev/null; then
-  echo "Please install pyenv to continue"
   exit 1
 fi
 
@@ -43,7 +52,11 @@ if ! type nvim > /dev/null; then
   exit 1
 fi
 
-setup_zsh
+echo "${PADDING}Setting up Vim..."
 setup_vim
+echo
+
+echo "${PADDING}Setting up ZSH..."
+setup_zsh
 
 exec "$SHELL"
