@@ -1,0 +1,77 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+$time\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$status\
+$character\
+$cmd_duration
+"""
+
+right_format = """$time"""
+
+[git_branch]
+format = "❯ [$branch(:$remote_branch)]($style) "
+
+[git_status]
+format = '[$ahead_behind$all_status]($style)'
+conflicted = '[ $count](red) '
+ahead = ' $count '
+behind = ' $count '
+diverged = ' ${ahead_count}  ${behind_count} '
+untracked = '[ $count](blue) '
+stashed = ' $count '
+modified = '[ $count](#FFFF00) '
+staged = ' $count '
+renamed = '[󰛿 $count](#FFFF00) '
+deleted = '[ $count](red) '
+style = 'green'
+
+[time]
+disabled = false
+format = "[$time](style) ❯ "
+
+[status]
+pipestatus_format = "[❯ $symbol$pipestatus]($style) "
+pipestatus_segment_format = "[$int]($style)"
+format = "[❯ $symbol$int]($style) "
+pipestatus = true
+disabled = false
+symbol = "✘"
+
+[line_break]
+disabled = true
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow bold"
+
+
+# Change the value of this parameter to show a different icon.
+# typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON="\uF059 "
+# typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON="\uF06A "
+# typeset -g POWERLEVEL9K_VCS_STAGED_ICON="\uF055 "
+# typeset -g POWERLEVEL9K_VCS_CONFLICTED_ICON="\uF490 "
+# typeset -g POWERLEVEL9K_VCS_STASH_ICON="\uF01C "
+# typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON="\uF01A "
+# typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON="\uF01B "
+# typeset -g POWERLEVEL9K_VCS_COMMITS_AHEAD_ICON="\uF18E "
+# typeset -g POWERLEVEL9K_VCS_COMMITS_BEHIND_ICON="\uF190 "
+# typeset -g POWERLEVEL9K_VCS_TAG_ICON="\uF02B "
+# typeset -g POWERLEVEL9K_VCS_REMOTE_BRANCH_ICON="\uE728 "
+# typeset -g POWERLEVEL9K_VCS_COMMIT_ICON="\uE729 "
+# typeset -g POWERLEVEL9K_VCS_WIP_ICON="\uF425 "
+
+# local       meta='%f'     # default foreground
+# local      clean='%76F'   # green foreground
+# local   modified='%178F'  # yellow foreground
+# local  untracked='%39F'   # blue foreground
+# local conflicted='%196F'  # red foreground
