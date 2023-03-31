@@ -1,0 +1,4 @@
+brew install git nvim
+brew install --cask warp
+
+curl -sS https://starship.rs/install.sh | sh
