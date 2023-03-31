@@ -4,7 +4,6 @@
 add_newline = false
 
 format = """
-$time\
 $directory\
 $git_branch\
 $git_commit\
@@ -37,7 +36,7 @@ style = 'green'
 
 [time]
 disabled = false
-format = "[$time](style) ❯ "
+format = "[$time](style)"
 
 [status]
 pipestatus_format = "[❯ $symbol$pipestatus]($style) "
