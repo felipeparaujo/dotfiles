@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+alias awsl="aws --endpoint=http://localhost:4566"
+
 export SENSAT_PATH_ASYNC_JOBS="$HOME/workspace/async-jobs"
 export SENSAT_PATH_SENSAT="$HOME/workspace/platform"
 export SENSAT_PATH_PASS="$HOME/workspace/pass"

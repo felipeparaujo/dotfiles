@@ -1,4 +1,7 @@
 brew install git nvim
 brew install --cask warp
 
+git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.config/nvim/bundle/Vundle.vim"
+nvim +PluginInstall +qall
+
 curl -sS https://starship.rs/install.sh | sh
