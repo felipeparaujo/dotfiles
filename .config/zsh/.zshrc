@@ -1,6 +1,6 @@
 eval "$(starship init zsh)"
 
-alias vim=nvim
+alias vim="nvim -p"
 alias ls="ls -G"
 alias python="python3"
 alias pip="pip3"
