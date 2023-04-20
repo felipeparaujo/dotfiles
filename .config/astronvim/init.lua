@@ -12,7 +12,7 @@ return {
         require("catppuccin").setup {
           color_overrides = {
             mocha = {
-              base = "#030303",
+              base = "#111111",
               mantle = "#020202",
               crust = "#010101"
             }
