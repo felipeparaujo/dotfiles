@@ -11,9 +11,9 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
+$cmd_duration\
 $status\
 $character\
-$cmd_duration
 """
 
 right_format = """$time"""
@@ -51,5 +51,5 @@ symbol = "✘"
 disabled = true
 
 [cmd_duration]
-format = "[$duration]($style)"
+format = "[❯ $duration]($style) "
 style = "yellow bold"
