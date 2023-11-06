@@ -1,1 +1,2 @@
 .config/zsh/secrets.sh
+.config/fish/conf.d/98-secrets.fish

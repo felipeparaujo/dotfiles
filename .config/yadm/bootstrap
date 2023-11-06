@@ -1,5 +1,6 @@
-brew install git nvim
-brew install --cask warp
+brew install git nvim fish
+echo '/opt/homebrew/bin/fish' | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
 
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim $HOME/.config/nvim
 ln -s $HOME/.config/astronvim/ $HOME/.config/nvim/lua/user

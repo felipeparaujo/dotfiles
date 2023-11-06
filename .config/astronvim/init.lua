@@ -3,7 +3,7 @@ return {
     relativenumber = false
   },
 
-  colorscheme = "catppuccin",
+  colorscheme = "catppuccin-mocha",
 
   plugins = {
     {
@@ -13,8 +13,8 @@ return {
           color_overrides = {
             mocha = {
               base = "#111111",
-              mantle = "#020202",
-              crust = "#010101"
+              mantle = "#111111",
+              crust = "#111111"
             }
           }
         }
