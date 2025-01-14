@@ -1,0 +1,5 @@
+theme = catppuccin-mocha
+background = #101010
+copy-on-select = clipboard
+macos-titlebar-style = tabs
+shell-integration-features = no-cursor,sudo,title

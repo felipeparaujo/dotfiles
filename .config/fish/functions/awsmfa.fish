@@ -7,9 +7,6 @@ function awsmfa
     and aws configure set aws_session_token "$(jq -r .Credentials.SessionToken ~/.aws/tempcreds)"
 
     while read -d ' = ' -l key value
-        echo key: $key
-        echo value: $value
-
         # if no value, could be a section
         if [ -z $value ]
             set section $key
