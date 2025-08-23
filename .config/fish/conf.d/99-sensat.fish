@@ -7,3 +7,5 @@ set -gx SENSAT_PATH_PASS "$HOME/workspace/pass"
 set -gx SENSAT_PATH_PRODUCT_INFRA "$HOME/workspace/product-infra"
 set -gx PASSWORD_STORE_DIR "$SENSAT_PATH_PASS"
 set -gx AWS_OTP_SHELL_COMMAND 'fish -c \'codegen aws\''
+set -gx PATH "$SENSAT_PATH_PLATFORM/.bin:$PATH"
+

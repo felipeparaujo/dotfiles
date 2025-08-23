@@ -5,6 +5,7 @@ add_newline = false
 command_timeout = 5000
 
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_commit\
@@ -53,3 +54,7 @@ disabled = true
 [cmd_duration]
 format = "[❯ $duration]($style) "
 style = "yellow bold"
+
+[hostname]
+ssh_only = true
+

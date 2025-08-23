@@ -1,10 +1,14 @@
-alias vim="nvim -p"
-alias ls="ls -G"
-alias python="python3"
-alias pip="pip3"
+abbr --add vim "nvim -p"
+abbr --add ls "ls -G"
+abbr --add python "python3"
+abbr --add pip "pip3"
+abbr --add golint "golangci-lint run --fix --max-issues-per-linter=0 --max-same-issues=0"
 
 # git
-alias gc='git commit --verbose'
-alias gp='git push'
-alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
-alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+abbr --add gc 'git commit --verbose'
+abbr --add gp 'git push'
+abbr --add gpu 'git pull'
+abbr --add gwip 'git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+abbr --add gunwip 'git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+abbr --add gco 'git checkout'
+

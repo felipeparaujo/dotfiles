@@ -3,3 +3,6 @@ background = #101010
 copy-on-select = clipboard
 macos-titlebar-style = tabs
 shell-integration-features = no-cursor,sudo,title
+font-family = "Monaspace Neon Frozen"
+font-family = "Hack Nerd Font"
+command = /opt/homebrew/bin/fish
