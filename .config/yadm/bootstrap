@@ -1,6 +1,4 @@
-brew install git nvim fish bootstrap
-echo '/opt/homebrew/bin/fish' | sudo tee -a /etc/shells
-chsh -s /opt/homebrew/bin/fish
+brew install git nvim fish
 
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim $HOME/.config/nvim
 rm -rf ~/.config/nvim/.git
@@ -8,4 +6,3 @@ nvim  --headless -c 'quitall'
 
 curl -sS https://starship.rs/install.sh | sh
 
-yadm decrypt

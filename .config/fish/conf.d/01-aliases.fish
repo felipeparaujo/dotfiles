@@ -2,7 +2,6 @@ abbr --add vim "nvim -p"
 abbr --add ls "ls -G"
 abbr --add python "python3"
 abbr --add pip "pip3"
-abbr --add golint "golangci-lint run --fix --max-issues-per-linter=0 --max-same-issues=0"
 
 # git
 abbr --add gc 'git commit --verbose'
