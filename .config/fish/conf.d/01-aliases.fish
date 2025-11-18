@@ -1,5 +1,4 @@
 abbr --add vim "nvim -p"
-abbr --add ls "ls -G"
 abbr --add python "python3"
 abbr --add pip "pip3"
 
@@ -11,3 +10,4 @@ abbr --add gwip 'git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git 
 abbr --add gunwip 'git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 abbr --add gco 'git checkout'
 
+alias ls='lsd -lah'

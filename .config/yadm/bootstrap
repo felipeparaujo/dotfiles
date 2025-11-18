@@ -1,4 +1,4 @@
-brew install git nvim fish
+brew install git nvim fish fzf zoxide lsd delta
 
 git clone --depth 1 https://github.com/AstroNvim/AstroNvim $HOME/.config/nvim
 rm -rf ~/.config/nvim/.git
